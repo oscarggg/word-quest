@@ -13,10 +13,16 @@ app.use(bodyParser.json())
 app.use(cors())
 
 // status endpoint
-app.get('/status', (req, res) => {
+/*app.get('/status', (req, res) => {
     res.send({
         message: 'hello peasants'
     })
 })
 
-app.listen(process.env.PORT || 5173)
+app.post('/register', (req, res) => {
+    res.send({
+        message:`${req.body.email} user was registered`
+    })
+})*/
+
+app.listen(process.env.PORT || 8081)
