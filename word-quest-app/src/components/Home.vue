@@ -1,10 +1,6 @@
 <template>
   <div class="home-container">
-    <GameBoard @wordCreated="createWord"/>
-    <div class="menu">
-      <button v-if="!gameStarted" @click="startGame">PLAY</button>
-      <button v-else @click="createWord" class="create-button">CREATE</button>
-    </div>
+    <GameBoard/>
   </div>
 </template>
 
@@ -17,28 +13,12 @@ export default {
   },
   data () {
     return {
-      gameStarted: false,
-      currentWord: ''
+      gameStarted: false
     }
   },
   methods: {
     startGame () {
       this.gameStarted = true
-    },
-    addToCurrentWord (letter) {
-      this.currentWord += letter
-    },
-    createWord () {
-      if (this.validateWord(this.currentWord)) {
-        console.log('Valid word:', this.currentWord)
-      } else {
-        console.log('Invalid word:', this.currentWord)
-      }
-      this.currentWord = '' // Reset current word
-      this.gameStarted = false // Optionally reset game state
-    },
-    validateWord (word) {
-      return word.length > 0
     }
   }
 }
@@ -76,15 +56,5 @@ button {
   border: none;
   border-radius: 5px;
   margin-bottom: 20px; /* Margin at the bottom for spacing */
-}
-.create-button {
-  margin-top: 20px;
-  padding: 10px 20px;
-  font-size: 18px;
-  cursor: pointer;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 5px;
 }
 </style>
